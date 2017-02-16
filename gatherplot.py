@@ -8,6 +8,12 @@ gatherplot = Blueprint('gatherplot', __name__,
 @gatherplot.route('/')
 def send_index():
     try:
-        return send_from_directory('static', 'index.html')
+        # TODO there should be more generous way to handle dir
+        return send_from_directory('gp2gatherplot/static', 'index.html')
     except TemplateNotFound:
         abort(404)
+
+
+@gatherplot.route('/test')
+def test():
+    return "sss"
